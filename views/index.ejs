@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Card</title>
+    <link rel="stylesheet" href="./views/styles.css">
+    <script src="./views/script.js"></script>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="navTitle">Contact Card</div>
+        <div id="navAddContact"><a href="#addContact">Add Contact</a></div>
+    </div>
+    <div id="contactblock">
+        <div class="head">contact list</div>
+        <div id="contactBody">
+            <% for(var i=0;i < collection.length;i++ ){ %>
+                <div>
+                    <div class="contact">
+                        <div class="contactName">
+                            <%= collection[i].name%>
+                        </div>
+                        <div class="contactNumber">
+                            <%= collection[i].number%>
+                        </div>
+                        <div class="deleteContact"><button onclick="deleteContact('<%= collection[i].name%>','<%=collection[i].number%>')">X</button> </div>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+    </div>
+
+
+
+    <div id="addContact">
+        <div class="head">Add Contact</div>
+        <form action="/addcontact" method="post" id="addContactForm">
+            <input type="text" name="name" placeholder="Enter name" required>
+            <input type="text" name="number" placeholder="Enter number" required>
+            <button class="btn">Add Contact</button>
+        </form>
+    </div>
+</body>
+
+</html>
